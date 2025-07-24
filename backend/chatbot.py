@@ -1,8 +1,8 @@
-# backend/chatbot.py
+# chatbot.py
 
 import os
 from datetime import datetime
-from backend.firebase import init_firebase
+from firebase import init_firebase
 import requests
 
 # --- API Configurations ---
@@ -116,7 +116,7 @@ def store_confirmed_requirement(company_name: str, prompt: str, response: str):
 
 # --- Create local company folder (optional) ---
 def create_company_folder(company_name):
-    folder_path = f"backend/companies/{company_name}"
+    folder_path = f"companies/{company_name}"
     os.makedirs(folder_path, exist_ok=True)
 
 # --- Optional: Store company + user metadata (one-time onboarding) ---
