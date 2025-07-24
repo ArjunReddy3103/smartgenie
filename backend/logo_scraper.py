@@ -26,7 +26,7 @@ def fetch_logo_url(website_url):
                 return urljoin(website_url, logo_src)
     return None
 
-def download_logo(logo_url, output_path="backend/static/logo/client_logo.png"):
+def download_logo(logo_url, output_path="static/logo/client_logo.png"):
     try:
         response = requests.get(logo_url, stream=True, timeout=10)
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
