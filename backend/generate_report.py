@@ -3,10 +3,10 @@ from weasyprint import HTML
 from datetime import datetime, timedelta
 import os
 
-BASE_TEMPLATE_DIR = "backend/templates"
-DEFAULT_OUTPUT_PATH = "backend/output/report.pdf"
-DEFAULT_STARTGENIE_LOGO = "backend/static/logo/startgenie.png"
-DEFAULT_CLIENT_LOGO = "backend/static/logo/client_logo.png"
+BASE_TEMPLATE_DIR = "templates"
+DEFAULT_OUTPUT_PATH = "output/report.pdf"
+DEFAULT_STARTGENIE_LOGO = "static/logo/startgenie.png"
+DEFAULT_CLIENT_LOGO = "static/logo/client_logo.png"
 
 def calculate_last_week_range():
     today = datetime.today()
