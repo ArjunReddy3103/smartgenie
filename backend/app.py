@@ -9,7 +9,7 @@ app = FastAPI()
 # -------------------- CORS Middleware --------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # ✅ Set specific domain in prod
+    allow_origins=["https://zesty-halva-749f5e.netlify.app"],  # ✅ Set specific domain in prod
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
