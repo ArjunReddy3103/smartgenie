@@ -145,10 +145,7 @@ chatForm.addEventListener('submit', async function(e) {
         const response = await fetch("http://127.0.0.1:8000/ask_ai", {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                prompt: msg,
-                company_name: "TestCompany"
-            }),
+            body: JSON.stringify({prompt: msg,}),
         });
         const data = await response.json();
         hideTyping();
