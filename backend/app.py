@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from chatbot import ask_ai
-from backend.sheets_logger import log_prompt
+from sheets_logger import log_prompt
 
 app = FastAPI()
 
@@ -26,4 +26,5 @@ async def ask_ai_route(data: ChatRequest):
     log_prompt(data.prompt)
     response = ask_ai(data.prompt)
     return {"response": response}
+
 
