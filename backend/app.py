@@ -24,8 +24,9 @@ def home():
 @app.post("/ask_ai")
 async def ask_ai_route(data: ChatRequest):
     log_prompt(data.prompt)
-    response = ask_ai(data.prompt, data.company_name)
+    response = ask_ai(data.prompt)
     return {"response": response}
+
 
 
 
