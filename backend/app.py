@@ -22,10 +22,9 @@ def home():
     return {"message": "🚀 SmartGenie backend is up and running!"}
 
 @app.post("/ask_ai")
-async def ask_ai_route(data: ChatRequest, request: Request):
-    user_ip = request.client.host
+async def ask_ai_route(data: ChatRequest):
+    log_prompt(data.prompt)
     response = ask_ai(data.prompt, data.company_name)
-    log_prompt(prompt=data.prompt, bot_reply=response, user_ip=user_ip)
     return {"response": response}
 
 
