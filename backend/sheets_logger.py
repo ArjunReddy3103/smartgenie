@@ -21,9 +21,12 @@ client = gspread.authorize(creds)
 SHEET_NAME = 'Chatbot Logs'  # Make sure your sheet has this exact name
 sheet = client.open(SHEET_NAME).sheet1
 
-def log_prompt(prompt: str, user_ip: str = 'N/A'):
-    """
-    Appends a user prompt with timestamp and optional IP to the Google Sheet.
-    """
-    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    sheet.append_row([timestamp, prompt, user_ip])
+def log_prompt(prompt, user_ip, bot_response):
+    from datetime import datetime
+    import pytz
+
+    ist = pytz.timezone('Asia/Kolkata')
+    timestamp = datetime.now(ist).strftime("%Y-%m-%d %H:%M:%S")
+
+    sheet.append_row([timestamp, prompt, user_ip, bot_response])
+
