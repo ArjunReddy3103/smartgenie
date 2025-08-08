@@ -22,10 +22,14 @@ def home():
     return {"message": "🚀 SmartGenie backend is up and running!"}
 
 @app.post("/ask_ai")
-async def ask_ai_route(data: ChatRequest):
-    log_prompt(data.prompt)
+async def ask_ai_route(request: Request, data: ChatRequest):
+    client_host = request.client.host
+    forwarded_for = request.headers.get("x-forwarded-for")
+    user_ip = forwarded_for.split(",")[0].strip() if forwarded_for else client_host
+    log_prompt(data.prompt, user_ip)
     response = ask_ai(data.prompt)
     return {"response": response}
+
 
 
 
